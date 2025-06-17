@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import { VueFire } from 'vuefire';
 import App from './App.vue';
 import { firebaseApp } from '@/firebase';
+import router from '@/router';
 
 // Vuetify
 import 'vuetify/styles';
@@ -17,6 +18,7 @@ const vuetify = createVuetify({
 const app = createApp(App);
 
 app.use(vuetify);
+app.use(router);
 
 // https://vuefire.vuejs.org/guide/getting-started.html#Setup
 app.use(VueFire, {

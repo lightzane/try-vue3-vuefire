@@ -1,9 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main>
-    <v-btn color="primary">Hello World</v-btn>
-  </main>
+  <RouterView />
 </template>
 
 <style scoped></style>
