@@ -56,6 +56,22 @@ npm i vuefire firebase
 
 **To follow the course** copy the few key codes: https://github.com/Code-Pop/firebase-with-vue-3-and-vuefire/tree/02-begin
 
+## Note on Errors
+
+### Cannot find module
+
+When you experience cannot find module on .vue components
+
+```vue
+<!-- CafeCard.vue -->
+<script setup lang="ts">
+import { computed } from 'vue';
+import BaseButton from '@/components/base/BaseButton.vue'; // if this has error
+</script>
+```
+
+Then double check that the **`BaseButton.vue`** file must also have `lang="ts"` in its `<script setup>`
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
