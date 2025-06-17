@@ -5,12 +5,21 @@ import BaseIcon from '@/components/base/BaseIcon.vue';
 import BaseImageCard from '@/components/base/BaseImageCard.vue';
 import BaseRating from '@/components/base/BaseRating.vue';
 import CafeImage from '@/components/CafeImage.vue';
-import { useFirestore } from 'vuefire';
+import { useCurrentUser, useFirestore } from 'vuefire';
 import { deleteDoc, doc } from 'firebase/firestore';
 
 const db = useFirestore();
+const user = useCurrentUser();
 
 const props = defineProps({
+  createdBy: {
+    type: String,
+    default: '',
+  },
+  createdById: {
+    type: String,
+    default: '',
+  },
   description: {
     type: String,
     default: 'No review yet',
@@ -93,9 +102,10 @@ async function deleteCafe() {
       <p>{{ description }}</p>
     </template>
     <template v-slot:price>
-      {{ priceSymbol }}
+      <p>{{ priceSymbol }}</p>
+      <v-chip v-if="createdBy" size="x-small">Added by: {{ createdBy }}</v-chip>
     </template>
-    <template v-slot:actions>
+    <template v-slot:actions v-if="user?.email">
       <BaseButton color="primary" :to="`/cafe/${props.docId}`">
         <BaseIcon icon="mdi-pencil" class="mr-1" /> Edit
       </BaseButton>

@@ -7,7 +7,11 @@ import BaseCard from '@/components/base/BaseCard.vue';
 import BaseForm from '@/components/base/BaseForm.vue';
 import BaseInput from '@/components/base/BaseInput.vue';
 
-const newUser = ref({
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const userInput = ref({
   email: '',
   password: '',
 });
@@ -15,17 +19,23 @@ const newUser = ref({
 // ! In this lesson, we will use the Password-based Authentication
 // Reference: https://firebase.google.com/docs/auth/web/password-auth
 
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
+
 import { useFirebaseAuth } from 'vuefire';
 
 // const auth = getAuth(); // Firebase
 const auth = useFirebaseAuth(); // VueFire
 
+// https://firebase.google.com/docs/auth/web/password-auth#create_a_password-based_account
 async function createUser() {
   createUserWithEmailAndPassword(
     auth,
-    newUser.value.email,
-    newUser.value.password
+    userInput.value.email,
+    userInput.value.password
   )
     .then((userCredential) => {
       // Signed up
@@ -40,6 +50,27 @@ async function createUser() {
       console.log(errorMessage);
     });
 }
+
+// https://firebase.google.com/docs/auth/web/password-auth#sign_in_a_user_with_an_email_address_and_password
+async function signInUser() {
+  signInWithEmailAndPassword(
+    auth,
+    userInput.value.email,
+    userInput.value.password
+  )
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      if (user.email) {
+        router.push('/');
+      }
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(errorMessage);
+    });
+}
 </script>
 
 <template>
@@ -49,14 +80,14 @@ async function createUser() {
       <template v-slot:default>
         <BaseForm>
           <BaseInput
-            v-model="newUser.email"
+            v-model="userInput.email"
             type="email"
             label="Email"
             required
             placeholder="eleanorshellstrop@thegoodplace.com"
           />
           <BaseInput
-            v-model="newUser.password"
+            v-model="userInput.password"
             label="Password"
             type="password"
             required
@@ -64,7 +95,9 @@ async function createUser() {
         </BaseForm>
       </template>
       <template v-slot:actions>
-        <BaseButton variant="tonal" color="success"> Sign In </BaseButton>
+        <BaseButton @click="signInUser" variant="tonal" color="success">
+          Sign In
+        </BaseButton>
         <BaseButton
           @click="createUser"
           variant="tonal"

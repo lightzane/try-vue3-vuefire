@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useFirestore } from 'vuefire';
+import { useCurrentUser, useFirestore } from 'vuefire';
 import { collection, addDoc } from 'firebase/firestore';
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseCheckbox from '@/components/base/BaseCheckbox.vue';
@@ -12,6 +12,7 @@ import BaseInput from '@/components/base/BaseInput.vue';
 
 const db = useFirestore();
 const router = useRouter();
+const user = useCurrentUser();
 
 const newCafe = ref({
   name: '',
@@ -19,6 +20,8 @@ const newCafe = ref({
   location: 'United States',
   price: 1,
   favorite: false,
+  createdBy: user?.value.email ?? '',
+  createdById: user?.value.uid ?? '',
 });
 
 // Add a new document with a generated id.

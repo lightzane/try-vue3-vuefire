@@ -79,6 +79,26 @@ Firebase Docs: https://firebase.google.com/docs/auth/web/start
 
 VueFire Docs: https://vuefire.vuejs.org/guide/auth.html
 
+### Cloud Firestore Rules
+
+https://firebase.google.com/docs/firestore/security/rules-conditions#data_validation
+
+```text
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      // allow read, write: if false;
+      // allow read, write: if request.time < timestamp.date(2025, 6, 30);
+      allow update, delete: if request.auth != null && request.auth.uid == resource.data.createdById; // after resource.data is arbitrary
+      allow create: if request.auth != null;
+      allow read: if true;
+    }
+  }
+}
+```
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
