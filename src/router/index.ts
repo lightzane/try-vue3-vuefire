@@ -17,6 +17,12 @@ const router = createRouter({
       // @ts-expect-error script setup not ts
       component: () => import('@/views/NewCafePage.vue'),
     },
+    {
+      path: '/cafe/:id',
+      name: 'edit-cafe',
+      // @ts-expect-error script setup not ts
+      component: () => import('@/views/EditCafePage.vue'),
+    },
   ],
 });
 
