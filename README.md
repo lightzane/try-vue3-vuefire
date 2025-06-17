@@ -4,6 +4,12 @@ Discovering **VueFire** (https://vuefire.vuejs.org/) while studying the related 
 
 **YOU MUST HAVE** an existing **Firebase** account, and create a **Cloud Firestore Database**.
 
+## Learn
+
+- Firebase (_Cloud Firestore Database_)
+- VueFire
+- Vite environment ([.env.example](./.env.example)) - See [Vite Docs](https://vite.dev/guide/env-and-mode.html#env-variables)
+
 ## How this project was created
 
 `npm create vue`
@@ -31,6 +37,18 @@ Scaffolding project in /Users/lightzane/Documents/dev/try-vue3-vuefire...
 | Optional: Initialize Git in your project directory with:
 
    git init && git add -A && git commit -m "initial commit"
+```
+
+## Install Dependencies
+
+### VueFire and Firebase
+
+> Note: YOU MUST HAVE an existing **Firebase** account and create a **Cloud Firestore Database**
+
+https://vuefire.vuejs.org/guide/getting-started.html#Installation
+
+```bash
+npm i vuefire firebase
 ```
 
 ## Recommended IDE Setup
