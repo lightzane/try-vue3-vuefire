@@ -1,5 +1,3 @@
-import './assets/main.css';
-
 import { createApp } from 'vue';
 import { VueFire } from 'vuefire';
 import App from './App.vue';

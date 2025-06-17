@@ -51,6 +51,10 @@ https://vuefire.vuejs.org/guide/getting-started.html#Installation
 npm i vuefire firebase
 ```
 
+## Cleanup Boilerplate
+
+**To follow the course** copy the few key codes: https://github.com/Code-Pop/firebase-with-vue-3-and-vuefire/tree/02-begin
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
