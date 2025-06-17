@@ -1,0 +1,81 @@
+<script setup>
+import { ref } from 'vue';
+
+import BaseButton from '@/components/base/BaseButton.vue';
+import BaseContainer from '@/components/base/BaseContainer.vue';
+import BaseCard from '@/components/base/BaseCard.vue';
+import BaseForm from '@/components/base/BaseForm.vue';
+import BaseInput from '@/components/base/BaseInput.vue';
+
+const newUser = ref({
+  email: '',
+  password: '',
+});
+
+// ! In this lesson, we will use the Password-based Authentication
+// Reference: https://firebase.google.com/docs/auth/web/password-auth
+
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { useFirebaseAuth } from 'vuefire';
+
+// const auth = getAuth(); // Firebase
+const auth = useFirebaseAuth(); // VueFire
+
+async function createUser() {
+  createUserWithEmailAndPassword(
+    auth,
+    newUser.value.email,
+    newUser.value.password
+  )
+    .then((userCredential) => {
+      // Signed up
+      const user = userCredential.user;
+      console.log(user);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      console.log(errorMessage);
+    });
+}
+</script>
+
+<template>
+  <BaseContainer>
+    <h1 class="mb-4">Sign In</h1>
+    <BaseCard>
+      <template v-slot:default>
+        <BaseForm>
+          <BaseInput
+            v-model="newUser.email"
+            type="email"
+            label="Email"
+            required
+            placeholder="eleanorshellstrop@thegoodplace.com"
+          />
+          <BaseInput
+            v-model="newUser.password"
+            label="Password"
+            type="password"
+            required
+          />
+        </BaseForm>
+      </template>
+      <template v-slot:actions>
+        <BaseButton variant="tonal" color="success"> Sign In </BaseButton>
+        <BaseButton
+          @click="createUser"
+          variant="tonal"
+          color="secondary"
+          outline
+        >
+          Create New User
+        </BaseButton>
+      </template>
+    </BaseCard>
+  </BaseContainer>
+</template>
+
+<style></style>

@@ -23,6 +23,12 @@ const router = createRouter({
       // @ts-expect-error script setup not ts
       component: () => import('@/views/EditCafePage.vue'),
     },
+    {
+      path: '/sign-in',
+      name: 'sign-in',
+      // @ts-expect-error script setup not ts
+      component: () => import('@/views/SignInPage.vue'),
+    },
   ],
 });
 
