@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { VueFire } from 'vuefire';
+import { VueFire, VueFireAuth } from 'vuefire';
 import App from './App.vue';
 import { firebaseApp } from '@/firebase';
 import router from '@/router';
@@ -25,7 +25,10 @@ app.use(router);
 app.use(VueFire, {
   firebaseApp,
   modules: [
-    // we will see other modules later on (i.e. VueFireAuth)
+    VueFireAuth(), // https://vuefire.vuejs.org/guide/auth.html
+    // * Also, setup your "Sign-in" method in Firebase
+    // * See: https://firebase.google.com/docs/auth/web/password-auth
+    // In project: https://console.firebase.google.com/project/try-vue3-vuefire/authentication/providers
   ],
 });
 

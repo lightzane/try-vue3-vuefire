@@ -10,6 +10,7 @@ Discovering **VueFire** (https://vuefire.vuejs.org/) while studying the related 
 - VueFire
 - Vite environment ([.env.example](./.env.example)) - See [Vite Docs](https://vite.dev/guide/env-and-mode.html#env-variables)
 - Vuetify (https://vuetifyjs.com/en/getting-started/installation/#existing-projects)
+- Firebase Authentication (https://console.firebase.google.com/project/try-vue3-vuefire/authentication/providers)
 
 ## How this project was created
 
@@ -71,6 +72,12 @@ import BaseButton from '@/components/base/BaseButton.vue'; // if this has error
 ```
 
 Then double check that the **`BaseButton.vue`** file must also have `lang="ts"` in its `<script setup>`
+
+## Authentication
+
+Firebase Docs: https://firebase.google.com/docs/auth/web/start
+
+VueFire Docs: https://vuefire.vuejs.org/guide/auth.html
 
 ## Recommended IDE Setup
 
