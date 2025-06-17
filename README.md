@@ -4,11 +4,12 @@ Discovering **VueFire** (https://vuefire.vuejs.org/) while studying the related 
 
 **YOU MUST HAVE** an existing **Firebase** account, and create a **Cloud Firestore Database**.
 
-## Learn
+## Learn and Review
 
 - Firebase (_Cloud Firestore Database_)
 - VueFire
 - Vite environment ([.env.example](./.env.example)) - See [Vite Docs](https://vite.dev/guide/env-and-mode.html#env-variables)
+- Vuetify (https://vuetifyjs.com/en/getting-started/installation/#existing-projects)
 
 ## How this project was created
 

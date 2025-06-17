@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main>Hello world</main>
+  <main>
+    <v-btn color="primary">Hello World</v-btn>
+  </main>
 </template>
 
 <style scoped></style>
