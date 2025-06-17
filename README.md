@@ -6,7 +6,7 @@ Discovering **VueFire** (https://vuefire.vuejs.org/) while studying the related 
 
 ## Learn and Review
 
-- Firebase (_Cloud Firestore Database_)
+- Firebase ([_Cloud Firestore Database_](https://firebase.google.com/docs/firestore))
 - VueFire
 - Vite environment ([.env.example](./.env.example)) - See [Vite Docs](https://vite.dev/guide/env-and-mode.html#env-variables)
 - Vuetify (https://vuetifyjs.com/en/getting-started/installation/#existing-projects)
