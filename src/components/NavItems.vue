@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import BaseButton from '@/components/base/BaseButton.vue';
 import { getAuth, signOut } from 'firebase/auth';
 import { useCurrentUser, useFirebaseAuth } from 'vuefire';
@@ -7,7 +7,7 @@ const user = useCurrentUser();
 
 // https://firebase.google.com/docs/auth/web/password-auth#next_steps
 // const auth = getAuth(); // Firebase
-const auth = useFirebaseAuth(); // VueFire
+const auth = useFirebaseAuth()!; // VueFire
 
 async function signOutFirebase() {
   signOut(auth)
