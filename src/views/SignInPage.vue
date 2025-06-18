@@ -23,12 +23,28 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from 'firebase/auth';
 
 import { useFirebaseAuth } from 'vuefire';
 
 // const auth = getAuth(); // Firebase
 const auth = useFirebaseAuth(); // VueFire
+
+// https://firebase.google.com/docs/auth/web/google-signin
+const provider = new GoogleAuthProvider();
+
+async function googleSignIn() {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result.user);
+      router.push({ path: '/', replace: true });
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+}
 
 // https://firebase.google.com/docs/auth/web/password-auth#create_a_password-based_account
 async function createUser() {
@@ -97,6 +113,9 @@ async function signInUser() {
       <template v-slot:actions>
         <BaseButton @click="signInUser" variant="tonal" color="success">
           Sign In
+        </BaseButton>
+        <BaseButton @click="googleSignIn" variant="tonal" color="success">
+          Google
         </BaseButton>
         <BaseButton
           @click="createUser"

@@ -105,13 +105,30 @@ service cloud.firestore {
 
 1. Go to https://console.cloud.google.com
 2. Select project or organization (e.g. `try-vue3-vuefire` - Firebase will also automatically create a Google Cloud for your Firebase project)
-3. Select **APIs & services**
+3. Select **APIs & Services**
 4. Select **Credentials**
 5. Configure **Application restrictions** based on the use-case
 
 _DO NOT FORGET_ to press the **Save** button at the bottom part of the page.
 
 ![Google Cloud Console](./consolecloudgoogle.png)
+
+#### IMPORTANT
+
+Also, include your **Firebase Auth Domain** (i.e. `https://try-vue3-vuefire.firebaseapp.com`)
+
+If not, then you will get the following error:
+
+```json
+{
+  "error": {
+    "code": 403,
+    "message": "Requests from referer https://try-vue3-vuefire.firebaseapp.com/ are blocked."
+  }
+}
+```
+
+Also, you may want to include the domain (i.e. `https://lightzane.github.io`) in **OAuth 2.0 Client IDs**
 
 ## Recommended IDE Setup
 
