@@ -27,7 +27,8 @@ async function signOutFirebase() {
     <BaseButton to="/">Home</BaseButton>
     <BaseButton to="/new">New</BaseButton>
     <BaseButton v-if="user?.email" to="/" @click="signOutFirebase">
-      Sign Out
+      <v-avatar v-if="user.photoURL" :image="user.photoURL"></v-avatar>
+      <span class="pl-1">Sign Out</span>
     </BaseButton>
     <BaseButton v-else to="/sign-in">Sign-In</BaseButton>
   </nav>
