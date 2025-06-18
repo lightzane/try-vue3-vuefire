@@ -130,6 +130,15 @@ If not, then you will get the following error:
 
 Also, you may want to include the domain (i.e. `https://lightzane.github.io`) in **OAuth 2.0 Client IDs**
 
+_DO NOT FORGET_ to include the custom domain in **Firebase** console! Else you will get the following warning:
+
+```
+Info: The current domain is not authorized for OAuth operations.
+This will prevent signInWithPopup, signInWithRedirect, linkWithPopup and linkWithRedirect from working.
+Add your domain (lightzane.github.io) to the OAuth redirect domains list
+in the Firebase console -> Authentication -> Settings -> Authorized domains tab.
+```
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
