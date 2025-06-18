@@ -6,7 +6,7 @@ const cafeImage = computed(() => {
   const images = ['breakfast', 'curry', 'spaghetti', 'veggies']
   const randomIndex = Math.floor(Math.random() * images.length)
 
-  return `/images/${images[randomIndex]}.jpg`
+  return `./images/${images[randomIndex]}.jpg`
 })
 </script>
 
