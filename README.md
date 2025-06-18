@@ -99,6 +99,20 @@ service cloud.firestore {
 }
 ```
 
+### API Restrictions
+
+> Since Firebase keys are public in client, you can restrict API usage
+
+1. Go to https://console.cloud.google.com
+2. Select project or organization (e.g. `try-vue3-vuefire` - Firebase will also automatically create a Google Cloud for your Firebase project)
+3. Select **APIs & services**
+4. Select **Credentials**
+5. Configure **Application restrictions** based on the use-case
+
+_DO NOT FORGET_ to press the **Save** button at the bottom part of the page.
+
+![Google Cloud Console](./consolecloudgoogle.png)
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
